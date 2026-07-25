@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Purple — Links</title>
+    <meta
+      name="description"
+      content="Official links for Purple, an independent film by Ben Gilbert. Website, newsletter, and socials."
+    />
+    <meta property="og:title" content="Purple — Links" />
+    <meta
+      property="og:description"
+      content="A story of discovery in a city of lost people."
+    />
+    <meta property="og:image" content="assets/purple-tv-1x1-cover-3000x3000.png" />
+    <link rel="icon" href="assets/purple-tv-1x1-cover-3000x3000.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      :root {
+        --ink: #07060c;
+        --snow: #f7f2f8;
+        --mist: rgba(247, 242, 248, 0.72);
+        --line: rgba(247, 242, 248, 0.28);
+        --glow: rgba(196, 160, 220, 0.35);
+        --font: "Outfit", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+      }
+
+      body {
+        font-family: var(--font);
+        color: var(--snow);
+        background: var(--ink);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .stage {
+        position: relative;
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: grid;
+        place-items: center;
+        padding: 2.5rem 1.25rem 3rem;
+        overflow: hidden;
+      }
+
+      .backdrop {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(
+            180deg,
+            rgba(7, 6, 12, 0.35) 0%,
+            rgba(7, 6, 12, 0.55) 42%,
+            rgba(7, 6, 12, 0.92) 100%
+          ),
+          url("assets/purple-tv-1x1-cover-3000x3000.png") center / cover no-repeat;
+        transform: scale(1.04);
+        animation: drift 18s ease-in-out infinite alternate;
+      }
+
+      .panel {
+        position: relative;
+        z-index: 1;
+        width: min(100%, 26rem);
+        text-align: center;
+        animation: rise 0.9s ease-out both;
+      }
+
+      .avatar {
+        width: 6.5rem;
+        height: 6.5rem;
+        margin: 0 auto 1.35rem;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 1px solid var(--line);
+        box-shadow: 0 0 0 6px rgba(7, 6, 12, 0.25), 0 18px 40px rgba(0, 0, 0, 0.35);
+        animation: rise 1s ease-out 0.1s both;
+      }
+
+      h1 {
+        font-weight: 300;
+        font-size: clamp(2rem, 6vw, 2.6rem);
+        letter-spacing: 0.55em;
+        text-indent: 0.55em;
+        line-height: 1;
+        margin-bottom: 0.75rem;
+      }
+
+      .tagline {
+        color: var(--mist);
+        font-weight: 300;
+        font-size: 0.98rem;
+        line-height: 1.45;
+        letter-spacing: 0.02em;
+        margin-bottom: 1.75rem;
+      }
+
+      .links {
+        display: grid;
+        gap: 0.7rem;
+      }
+
+      .links a {
+        display: grid;
+        grid-template-columns: 1.25rem 1fr;
+        align-items: center;
+        gap: 0.85rem;
+        padding: 0.95rem 1.15rem;
+        color: var(--snow);
+        text-decoration: none;
+        font-weight: 400;
+        font-size: 0.95rem;
+        letter-spacing: 0.04em;
+        border: 1px solid var(--line);
+        background: rgba(7, 6, 12, 0.28);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        transition:
+          background 0.25s ease,
+          border-color 0.25s ease,
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+
+      .links a i {
+        width: 1.25rem;
+        text-align: center;
+        font-size: 1.05rem;
+        color: rgba(247, 242, 248, 0.9);
+      }
+
+      .links a span {
+        text-align: center;
+        padding-right: 1.25rem;
+      }
+
+      .links a:hover,
+      .links a:focus-visible {
+        background: rgba(196, 160, 220, 0.18);
+        border-color: rgba(247, 242, 248, 0.55);
+        box-shadow: 0 0 0 1px var(--glow);
+        transform: translateY(-2px);
+        outline: none;
+      }
+
+      .links a:nth-child(1) {
+        animation: rise 0.8s ease-out 0.2s both;
+      }
+      .links a:nth-child(2) {
+        animation: rise 0.8s ease-out 0.28s both;
+      }
+      .links a:nth-child(3) {
+        animation: rise 0.8s ease-out 0.36s both;
+      }
+      .links a:nth-child(4) {
+        animation: rise 0.8s ease-out 0.44s both;
+      }
+      .links a:nth-child(5) {
+        animation: rise 0.8s ease-out 0.52s both;
+      }
+      .links a:nth-child(6) {
+        animation: rise 0.8s ease-out 0.6s both;
+      }
+      .links a:nth-child(7) {
+        animation: rise 0.8s ease-out 0.68s both;
+      }
+
+      .credit {
+        margin-top: 1.75rem;
+        color: rgba(247, 242, 248, 0.45);
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        animation: rise 0.8s ease-out 0.76s both;
+      }
+
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes drift {
+        from {
+          transform: scale(1.04) translate3d(0, 0, 0);
+        }
+        to {
+          transform: scale(1.08) translate3d(0, -1.2%, 0);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .backdrop,
+        .panel,
+        .avatar,
+        .links a,
+        .credit {
+          animation: none;
+        }
+
+        .links a:hover,
+        .links a:focus-visible {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="stage">
+      <div class="backdrop" aria-hidden="true"></div>
+
+      <div class="panel">
+        <img
+          class="avatar"
+          src="assets/purple-tv-1x1-cover-3000x3000.png"
+          alt="Purple film cover art"
+          width="104"
+          height="104"
+        />
+        <h1>PURPLE</h1>
+        <p class="tagline">A story of discovery in a city of lost people.</p>
+
+        <nav class="links" aria-label="Purple links">
+          <a href="https://www.purple-movie.com/" target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <span>Official Website</span>
+          </a>
+          <a
+            href="https://purple-the-movie.kit.com/see-the-film"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            <span>Email Newsletter</span>
+          </a>
+          <a
+            href="https://www.instagram.com/purplethemovie/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            <span>Instagram</span>
+          </a>
+          <a
+            href="https://www.tiktok.com/@purple.the.movie"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+            <span>TikTok</span>
+          </a>
+          <a
+            href="https://www.facebook.com/purplethemovie"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+            <span>Facebook</span>
+          </a>
+          <a href="https://x.com/PurpleTheMovie" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+            <span>X</span>
+          </a>
+          <a
+            href="https://www.linkedin.com/company/purple-the-movie-llc/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+            <span>LinkedIn</span>
+          </a>
+        </nav>
+
+        <p class="credit">A film by Ben Gilbert</p>
+      </div>
+    </main>
+  </body>
+</html>
