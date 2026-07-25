@@ -197,6 +197,117 @@
         animation: rise 0.8s ease-out 0.76s both;
       }
 
+      .qr-trigger {
+        position: fixed;
+        left: 1rem;
+        bottom: 1rem;
+        z-index: 20;
+        width: 2.75rem;
+        height: 2.75rem;
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(7, 6, 12, 0.45);
+        color: var(--snow);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        cursor: pointer;
+        transition:
+          background 0.25s ease,
+          border-color 0.25s ease,
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+
+      .qr-trigger:hover,
+      .qr-trigger:focus-visible {
+        background: rgba(196, 160, 220, 0.22);
+        border-color: rgba(247, 242, 248, 0.55);
+        box-shadow: 0 0 0 1px var(--glow);
+        transform: translateY(-2px);
+        outline: none;
+      }
+
+      .qr-trigger i {
+        font-size: 1.05rem;
+      }
+
+      .qr-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 30;
+        display: grid;
+        place-items: center;
+        padding: 1.25rem;
+        background: rgba(7, 6, 12, 0.72);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        opacity: 0;
+        visibility: hidden;
+        transition:
+          opacity 0.25s ease,
+          visibility 0.25s ease;
+      }
+
+      .qr-modal.is-open {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .qr-dialog {
+        position: relative;
+        width: min(100%, 20rem);
+        padding: 1.35rem 1.35rem 1.15rem;
+        border: 1px solid var(--line);
+        background: rgba(12, 10, 18, 0.92);
+        text-align: center;
+        transform: translateY(12px) scale(0.98);
+        transition: transform 0.25s ease;
+      }
+
+      .qr-modal.is-open .qr-dialog {
+        transform: translateY(0) scale(1);
+      }
+
+      .qr-dialog h2 {
+        font-weight: 300;
+        font-size: 0.85rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--mist);
+        margin-bottom: 1rem;
+      }
+
+      .qr-dialog img {
+        display: block;
+        width: 100%;
+        height: auto;
+        background: #fff;
+        padding: 0.65rem;
+      }
+
+      .qr-close {
+        position: absolute;
+        top: 0.55rem;
+        right: 0.55rem;
+        width: 2rem;
+        height: 2rem;
+        display: grid;
+        place-items: center;
+        border: 0;
+        background: transparent;
+        color: var(--mist);
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      .qr-close:hover,
+      .qr-close:focus-visible {
+        color: var(--snow);
+        outline: none;
+      }
+
       @keyframes rise {
         from {
           opacity: 0;
@@ -227,8 +338,15 @@
         }
 
         .links a:hover,
-        .links a:focus-visible {
+        .links a:focus-visible,
+        .qr-trigger:hover,
+        .qr-trigger:focus-visible {
           transform: none;
+        }
+
+        .qr-modal,
+        .qr-dialog {
+          transition: none;
         }
       }
     </style>
@@ -295,5 +413,76 @@
         <p class="credit">A film by Ben Gilbert</p>
       </div>
     </main>
+
+    <button
+      class="qr-trigger"
+      type="button"
+      aria-haspopup="dialog"
+      aria-controls="qr-modal"
+      aria-label="Show QR code for this page"
+    >
+      <i class="fa-solid fa-qrcode" aria-hidden="true"></i>
+    </button>
+
+    <div
+      class="qr-modal"
+      id="qr-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="qr-title"
+      hidden
+    >
+      <div class="qr-dialog">
+        <button class="qr-close" type="button" aria-label="Close QR code">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+        <h2 id="qr-title">Scan to open</h2>
+        <img
+          src="assets/purple-links-qr.png"
+          alt="QR code linking to the Purple links page"
+          width="512"
+          height="512"
+        />
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        const modal = document.getElementById("qr-modal");
+        const openBtn = document.querySelector(".qr-trigger");
+        const closeBtn = modal.querySelector(".qr-close");
+
+        function openModal() {
+          modal.hidden = false;
+          requestAnimationFrame(() => modal.classList.add("is-open"));
+          closeBtn.focus();
+        }
+
+        function closeModal() {
+          modal.classList.remove("is-open");
+          const finish = () => {
+            if (!modal.classList.contains("is-open")) {
+              modal.hidden = true;
+              modal.removeEventListener("transitionend", finish);
+            }
+          };
+          modal.addEventListener("transitionend", finish);
+          openBtn.focus();
+        }
+
+        openBtn.addEventListener("click", openModal);
+        closeBtn.addEventListener("click", closeModal);
+
+        modal.addEventListener("click", (event) => {
+          if (event.target === modal) closeModal();
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && modal.classList.contains("is-open")) {
+            closeModal();
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
