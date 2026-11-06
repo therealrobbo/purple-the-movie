@@ -6,7 +6,7 @@
     <title>Purple — Links</title>
     <meta
       name="description"
-      content="Official links for Purple, an independent film by Ben Gilbert. Website, newsletter, and socials."
+      content="Official links for Purple, an independent film by Ben Gilbert. Watch now, website, newsletter, and socials."
     />
     <meta property="og:title" content="Purple — Links" />
     <meta
@@ -61,7 +61,7 @@
         min-height: 100vh;
         min-height: 100dvh;
         display: grid;
-        place-items: center;
+        place-items: start center;
         padding: 2.5rem 1.25rem 3rem;
         overflow: hidden;
       }
@@ -120,6 +120,25 @@
 
       .links {
         display: grid;
+        gap: 1.45rem;
+      }
+
+      .link-section {
+        display: grid;
+        gap: 0.75rem;
+      }
+
+      .section-title {
+        font-weight: 300;
+        font-size: 0.72rem;
+        letter-spacing: 0.28em;
+        text-indent: 0.28em;
+        text-transform: uppercase;
+        color: var(--mist);
+      }
+
+      .link-group {
+        display: grid;
         gap: 0.7rem;
       }
 
@@ -166,26 +185,48 @@
         outline: none;
       }
 
-      .links a:nth-child(1) {
+      .link-section:nth-child(1) .section-title {
+        animation: rise 0.8s ease-out 0.16s both;
+      }
+      .link-section:nth-child(1) .link-group a:nth-child(1) {
         animation: rise 0.8s ease-out 0.2s both;
       }
-      .links a:nth-child(2) {
+      .link-section:nth-child(1) .link-group a:nth-child(2) {
         animation: rise 0.8s ease-out 0.28s both;
       }
-      .links a:nth-child(3) {
+      .link-section:nth-child(1) .link-group a:nth-child(3) {
         animation: rise 0.8s ease-out 0.36s both;
       }
-      .links a:nth-child(4) {
+      .link-section:nth-child(1) .link-group a:nth-child(4) {
         animation: rise 0.8s ease-out 0.44s both;
       }
-      .links a:nth-child(5) {
+      .link-section:nth-child(1) .link-group a:nth-child(5) {
         animation: rise 0.8s ease-out 0.52s both;
       }
-      .links a:nth-child(6) {
+
+      .link-section:nth-child(2) .section-title {
         animation: rise 0.8s ease-out 0.6s both;
       }
-      .links a:nth-child(7) {
+      .link-section:nth-child(2) .link-group a:nth-child(1) {
         animation: rise 0.8s ease-out 0.68s both;
+      }
+      .link-section:nth-child(2) .link-group a:nth-child(2) {
+        animation: rise 0.8s ease-out 0.76s both;
+      }
+      .link-section:nth-child(2) .link-group a:nth-child(3) {
+        animation: rise 0.8s ease-out 0.84s both;
+      }
+      .link-section:nth-child(2) .link-group a:nth-child(4) {
+        animation: rise 0.8s ease-out 0.92s both;
+      }
+      .link-section:nth-child(2) .link-group a:nth-child(5) {
+        animation: rise 0.8s ease-out 1s both;
+      }
+      .link-section:nth-child(2) .link-group a:nth-child(6) {
+        animation: rise 0.8s ease-out 1.08s both;
+      }
+      .link-section:nth-child(2) .link-group a:nth-child(7) {
+        animation: rise 0.8s ease-out 1.16s both;
       }
 
       .credit {
@@ -194,7 +235,7 @@
         font-size: 0.75rem;
         letter-spacing: 0.12em;
         text-transform: uppercase;
-        animation: rise 0.8s ease-out 0.76s both;
+        animation: rise 0.8s ease-out 1.24s both;
       }
 
       .qr-trigger {
@@ -332,6 +373,7 @@
         .backdrop,
         .panel,
         .avatar,
+        .section-title,
         .links a,
         .credit {
           animation: none;
@@ -359,56 +401,107 @@
         <h1>PURPLE</h1>
         <p class="tagline">A story of discovery in a city of lost people.</p>
 
-        <nav class="links" aria-label="Purple links">
-          <a
-            href="https://www.instagram.com/purplethemovie/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-            <span>Instagram</span>
-          </a>
-          <a
-            href="https://www.tiktok.com/@purple.the.movie"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
-            <span>TikTok</span>
-          </a>
-          <a
-            href="https://www.facebook.com/purplethemovie"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
-            <span>Facebook</span>
-          </a>
-          <a href="https://x.com/PurpleTheMovie" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
-            <span>X</span>
-          </a>
-          <a
-            href="https://www.linkedin.com/company/purple-the-movie-llc/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
-            <span>LinkedIn</span>
-          </a>
-          <a href="https://www.purple-movie.com/" target="_blank" rel="noopener noreferrer">
-            <i class="fa-solid fa-globe" aria-hidden="true"></i>
-            <span>Official Website</span>
-          </a>
-          <a
-            href="https://purple-the-movie.kit.com/see-the-film"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-            <span>Email Newsletter</span>
-          </a>
-        </nav>
+        <div class="links">
+          <section class="link-section">
+            <h2 class="section-title">Watch Now</h2>
+            <nav class="link-group" aria-label="Watch Purple">
+              <a
+                href="https://www.amazon.com/gp/video/detail/B0HL5KYGR1?ref_=atv_dp_share_cu_r"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fa-brands fa-amazon" aria-hidden="true"></i>
+                <span>Amazon Prime</span>
+              </a>
+              <a
+                href="https://tv.apple.com/us/movie/purple/umc.cmc.74wjef094vec654qn98m32crr"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fa-brands fa-apple" aria-hidden="true"></i>
+                <span>Apple TV</span>
+              </a>
+              <a
+                href="https://athome.fandango.com/content/browse/details/Purple/5134790"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fa-solid fa-tv" aria-hidden="true"></i>
+                <span>Fandango at Home</span>
+              </a>
+              <a
+                href="https://play.google.com/store/movies/details/Purple?id=cr943V1rr4I.P"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fa-brands fa-google-play" aria-hidden="true"></i>
+                <span>Google Play</span>
+              </a>
+              <a
+                href="https://www.youtube.com/watch?v=PMp1mRx-XYc"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                <span>YouTube Movies</span>
+              </a>
+            </nav>
+          </section>
+
+          <section class="link-section">
+            <h2 class="section-title">Social</h2>
+            <nav class="link-group" aria-label="Purple socials">
+              <a
+                href="https://www.instagram.com/purplethemovie/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                <span>Instagram</span>
+              </a>
+              <a
+                href="https://www.tiktok.com/@purple.the.movie"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+                <span>TikTok</span>
+              </a>
+              <a
+                href="https://www.facebook.com/purplethemovie"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                <span>Facebook</span>
+              </a>
+              <a href="https://x.com/PurpleTheMovie" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+                <span>X</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/company/purple-the-movie-llc/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+                <span>LinkedIn</span>
+              </a>
+              <a href="https://www.purple-movie.com/" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-globe" aria-hidden="true"></i>
+                <span>Official Website</span>
+              </a>
+              <a
+                href="https://purple-the-movie.kit.com/see-the-film"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                <span>Email Newsletter</span>
+              </a>
+            </nav>
+          </section>
+        </div>
 
         <p class="credit">A film by Ben Gilbert</p>
       </div>
